@@ -1,18 +1,23 @@
-#container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
+:root {
+    --grid-cols: 1;
+    --grid-rows: 1;
 }
 
-#buttons {
-    border: 1px solid black;
-    height: 100px;
-    width: 800px;
-}
-
-#art {
+.grid-container {
     border: 1px solid black;
     height: 800px;
     width: 800px;
+    padding: 5px;
+    align-self: center;
+    display: grid;
+    grid-gap: 1em;
+    grid-template-rows: repeat(var(--grid-rows), 1fr);
+    grid-template-columns: repeat(var(--grid-cols), 1fr);
 }
+
+.grid-item {
+    padding: 1em;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+  
