@@ -1,15 +1,12 @@
-const container = document.querySelector('.grid-container');
+const container = document.getElementById("container");
 
-makeGrid(100);
+function makeRows(rows, cols) {
+  container.style.setProperty('--grid-rows', rows);
+  container.style.setProperty('--grid-cols', cols);
+  for (c = 0; c < (rows * cols); c++) {
+    let cell = document.createElement("div");
+    container.appendChild(cell).className = "grid-item";
+  };
+};
 
-function makeGrid(num){
-  for (var i = 0; i < num; i++) {
-    container.innerHTML += '<div class="grid-row"></div>';
-    
-      for (let i = 0; i < num; i++){
-      const row = document.querySelector('grid-row');
-      row.innerHTML += '<div class="grid-col"></div>';
-    }
-    
- }
-}
+makeRows(16, 16);
