@@ -1,14 +1,13 @@
 const container = document.getElementById("container");
+const button = document.getElementById('prompt');
+
 makeRows(16, 16);
 
-const grid = document.querySelectorAll('.grid-item');
+button.addEventListener('click', generate);
 
-console.log(grid);
-for (const box of grid) {
-  box.addEventListener('mouseover', function onClick() {
-    box.setAttribute('style', 'background: black');
-  });
-}
+
+
+
 
 
 
@@ -19,10 +18,28 @@ function makeRows(rows, cols) {
   for (c = 0; c < (rows * cols); c++) {
     let cell = document.createElement("div");
     container.appendChild(cell).className = 'grid-item';
-    /*container.innerHTML += '<div class="grid-item" onmouseover="colour()"></div>'*/
   };
+  const grid = document.querySelectorAll('.grid-item');
+  for (const box of grid) {
+    box.addEventListener('mouseover', function onClick() {
+      box.setAttribute('style', 'background: black');
+    });
+  }
+  
 };
 
-function colour() {
-  console.log("grid");
+function generate() {
+  let num = prompt('How many squares would you like a side?');
+  removeAllChildNodes();
+  if (num > 100){
+    alert('Too many squares!');
+    num = 100;
+  }
+  makeRows(num, num);
+}
+
+function removeAllChildNodes() {
+  while (container.firstChild) {
+      container.removeChild(container.firstChild);
+  }
 }
