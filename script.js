@@ -22,7 +22,10 @@ function makeRows(rows, cols) {
   const grid = document.querySelectorAll('.grid-item');
   for (const box of grid) {
     box.addEventListener('mouseover', function onClick() {
-      box.setAttribute('style', 'background: black');
+      let red = Math.floor(Math.random() * (255));
+      let blue = Math.floor(Math.random() * (255));
+      let green = Math.floor(Math.random() * (255));
+      box.setAttribute('style', `background: rgb(${red} ${blue} ${green})`);
     });
   }
   
